@@ -30,11 +30,11 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            cd ~/workspace/locamosfe/
+            cd ~/workspace/project-fe/
             ${{ secrets.GHP }}
             npm install
             npm run build
-            pm2 restart locamos-fe
+            pm2 restart project-fe
             
       - name: On Failure
         if: failure()
@@ -55,4 +55,4 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_URL }}
           title: "Merge to branch `dev` => auto deploy"
-          description: "Test frontend here: http://34.124.202.224:3000/"
+          description: "Test frontend here: http://1.2.3.4:3000/"
